@@ -2,21 +2,22 @@
 
 // webpack assets
 require('!!file?name=[name].[ext]!./html/index.html');
-require('./scss/base.scss');
+require('./scss/index.scss');
 
 // npm modules
 const angular = require('angular');
 const angular_route = require('angular-route');
 
 // angular modules
-var app = angular.module('topThreeApp', [angular_route]);
+var topThreeApp = angular.module('topThreeApp', [angular_route]);
 
-app.config(['$routeProvider', function($route) {
+topThreeApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
-      template: require('./view/home/home.html'),
-      controller: 'HomeController',
-      controllerAs: 'hc'
+      template: require('./html/home.html')
+    })
+    .when('/search', {
+      template: require('./html/search.html')
     })
     .otherwise({
       redirectTo: '/'
@@ -24,4 +25,5 @@ app.config(['$routeProvider', function($route) {
 }]);
 
 // angular components
-require('./view/home');
+require('./services')(topThreeApp);
+require('./components')(topThreeApp);

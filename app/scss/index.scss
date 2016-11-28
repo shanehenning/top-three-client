@@ -1,0 +1,8 @@
+@import "./lib/base";
+@import "./lib/_theme";
+section{
+  width: 80%;
+  margin: 0 auto;
+
+  @import "./lib/_contender";
+}

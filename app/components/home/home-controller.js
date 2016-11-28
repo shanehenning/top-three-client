@@ -15,6 +15,8 @@ function HomeController(yelpService, $location, $http) {
           return b.review_count - a.review_count;
         });
         yelpService.data = data.slice(0,3);
+        let gold = yelpService.data.splice(0,1);
+        yelpService.data.splice(1, 0, gold[0]); //put #1 in the middle
         yelpService.data.map(function(item){
           let newImage = item.image_url.slice(0, item.image_url.length - 6);
           newImage  += 'o.jpg';

@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  require('./yelp-service')(app);
+  require('./data-service')(app);
 };

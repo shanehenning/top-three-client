@@ -1,7 +1,18 @@
-@import "./lib/base";
 @import "./lib/_theme";
+@import "./lib/base";
+
+nav{
+  img{
+    margin: 1em;
+    height: 32pt;
+
+  }
+}
+
 section{
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  width: 95%;
   margin: 0 auto;
 
   @import "./lib/_contender";

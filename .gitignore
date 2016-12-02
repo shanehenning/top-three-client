@@ -63,6 +63,10 @@ tags
 .AppleDouble
 .LSOverride
 
+# Exclude any PSD/AI source
+*.psd
+*.ai
+
 # Icon must end with two \r
 Icon
 

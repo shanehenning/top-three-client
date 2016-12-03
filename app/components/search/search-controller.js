@@ -1,24 +1,23 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('ResultsController', ['dataService', '$location', ResultsController]);
+  app.controller('SearchController', ['dataService', '$location', SearchController]);
 };
 
-function ResultsController(dataService, $location) {
+function SearchController(dataService, $location) {
   this.api = dataService.api;
-  // this.api.yelp.reviews = [0, 0, 0];
   this.address = [];
   this.map = [];
   this.marker = [];
   this.infoWindow = [];
   this.articles = document.getElementsByTagName('article');
 
-  this.redirect = function(){
-    if(this.api.yelp[1] === undefined) $location.path('/');
-  };
-
-  this.getData = function(){
-    console.log('dataService.api: ', dataService.api);
+  this.retrieveData = function(){
+    let params = {
+      term: $location.path().split('/').splice(2,1),
+      location: $location.path().split('/').splice(3,1)
+    };
+    dataService.makeApiCalls(params);
   };
 
   this.getCorner = function(idx) {

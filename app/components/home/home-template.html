@@ -1,7 +1,7 @@
 <div>
-  <form ng-show="loading !=true" ng-model="searchParams" ng-submit="$ctrl.ask(searchParams); loading = true">
-    <input ng-model="searchParams.term" type="text" name="term" placeholder="what" value="pizza">
-    <input ng-model="searchParams.location" type="text" name="location" placeholder="where" value="seattle">
+  <form ng-show="loading !=true" ng-model="searchParams" ng-submit="$ctrl.retrieveData(searchParams); loading = true">
+    <input ng-model="searchParams.term" type="text" name="term" placeholder="what">
+    <input ng-model="searchParams.location" type="text" name="location" placeholder="where">
     <button type="submit">Click Me!</button>
   </form>
   <img id="loadAnimation" ng-show="loading" src="../../../app/resources/loading.gif" width="40px" height="40px" />

@@ -16,8 +16,8 @@ topThreeApp.config(['$routeProvider', function($route) {
     .when('/', {
       template: require('./html/home.html')
     })
-    .when('/results', {
-      template: require('./html/results.html')
+    .when('/search/:term/:location', {
+      template: require('./html/search.html')
     })
     .otherwise({
       redirectTo: '/'

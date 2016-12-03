@@ -55,6 +55,10 @@ article {
             }
         }
         h2 {
+            min-height: 87px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             font-family: $font-title;
             font-weight: 700;

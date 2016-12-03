@@ -33,7 +33,8 @@
     "beforeEach": false,
     "afterEach": false,
     "before": false,
-    "after": false
+    "after": false,
+    "google": false,
   },
   "ecmaFeatures": {
     "modules": true,

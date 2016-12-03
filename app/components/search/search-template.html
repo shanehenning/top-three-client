@@ -1,4 +1,4 @@
-<section ng-init="$ctrl.redirect(); $ctrl.appendGoogleMaps(); $ctrl.getData()">
+<section ng-init="$ctrl.retrieveData(); $ctrl.appendGoogleMaps()">
   <article class="contender" ng-repeat="item in $ctrl.api.yelp track by $index">
     <div class="panel-front">
     <div class="showcase-image" style="background-image: url('{{item.image_url}}')">
@@ -17,6 +17,7 @@
       </div>
       <div class="address">
         <h3>{{item.name}}</h3>
+        <a href="{{$ctrl.api.facebook[$index].data.data[0].website}}"><h4>Website</h4></a>
         <p>{{item.display_phone}}<br/>
           <a href="http://maps.google.com/?q={{item.name}}" target="_blank">
         {{item.location.address[0]}}<br/>

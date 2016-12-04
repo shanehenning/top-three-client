@@ -22,19 +22,16 @@ function dataService($http, $location) {
         thisDataService.api.yelp[1].index = 1;
         thisDataService.api.yelp[2].index = 2;
         thisDataService.api.yelp.map(function(item) {
-          // thisDataService.api.twitter[item].index = 'blah';
-          // console.log('item.index', thisDataService.api.twitter[item].index);
           let newImage = item.image_url.slice(0, item.image_url.length - 6);
           newImage += 'o.jpg';
           item.image_url = newImage;
           var twitterParams = {
-            // q: item.location.coordinate.latitude + ',' + item.location.coordinate.longitude + ',1mi since:2014-01-01'
             q: item.name + ' ' + item.location.city + ' since:2014-01-01',
           };
           // console.log('twitterParams: ', twitterParams);
           $http.post(`${__API_URL__}/api/twitter`, twitterParams)
             .then(function(data){
-              thisDataService.api.twitter[item.index] = data;
+              thisDataService.api.twitter[item.index] = data.data.statuses.slice(0, 3);
               // console.log('thisDataService.api.twitter[item]: ', thisDataService.api.twitter[item]);
             });
           var facebookParams = {
@@ -47,8 +44,7 @@ function dataService($http, $location) {
               // console.log('thisDataService.api.facebook[item]: ', thisDataService.api.facebook[item]);
             });
         });
-        // yelpService.par = yelpService.data[0].review_count;
-        // console.log('homeController thisDataService: ', thisDataService);
+        console.log('thisDataService: ', thisDataService);
         $location.path('/search/' + params.term + '/' + params.location);
       });
   };

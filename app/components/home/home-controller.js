@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('HomeController', ['dataService', HomeController]);
+  app.controller('HomeController', ['dataService', '$location', HomeController]);
 };
 
-function HomeController(dataService) {
-  this.retrieveData = function(params){
+function HomeController(dataService, $location) {
+  this.goSearch = function(params) {
+    console.log('HomeController goSearch');
     dataService.makeApiCalls(params);
-    console.log('HomeController dataService: ', dataService);
   };
 }

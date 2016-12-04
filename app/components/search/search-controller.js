@@ -13,10 +13,12 @@ function SearchController(dataService, $location) {
   this.articles = document.getElementsByTagName('article');
 
   this.retrieveData = function(){
+    // if(dataService.api.yelp[0] !== undefined) return;
     let params = {
       term: $location.path().split('/').splice(2,1),
       location: $location.path().split('/').splice(3,1)
     };
+    console.log('SearchController retrieveData');
     dataService.makeApiCalls(params);
   };
 
@@ -37,6 +39,7 @@ function SearchController(dataService, $location) {
       this.articles[idx].className -= ' ' + 'returned' + ' ';
     }
   };
+
   this.revolveLeft = function(idx) {
     this.articles[idx].className += ' returned ';
     if (this.articles[idx].classList.contains('revolved')) {

@@ -1,0 +1,16 @@
+nav {
+    display: flex;
+    align-items: center;
+    img {
+        margin: 1em;
+        height: 32pt;
+    }
+    form {
+        align-items: center;
+        display: flex;
+        margin: 0 auto;
+        position: relative;
+        top: 8px;
+        left: -34px;
+    }
+}

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = exports = (app)=>{
-  app.component('home', {
+  app.component('homeComponent', {
     controller: 'HomeController',
     template: require('./home-template.html')
   });

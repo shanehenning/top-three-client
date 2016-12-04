@@ -1,3 +1,5 @@
+<nav-component display="true"></nav-component>
+
 <section ng-init="$ctrl.retrieveData(); $ctrl.appendGoogleMaps()">
   <article class="contender" ng-repeat="item in $ctrl.api.yelp track by $index">
     <div class="panel-front">
@@ -6,6 +8,7 @@
       <h5 ng-style="{backgroundImage: $ctrl.getHorizontal($index)}" class="review-badge">REVIEWS: {{item.review_count}}<span></span></h5>
     </div>
     <h2>{{item.name}}</h2>
+    <!-- <a href="{{$ctrl.api.facebook[$index].data.data[0].website}}"><h4>{{$ctrl.api.facebook[$index].data.data[0].website}}</h4></a> -->
     <p>"{{item.snippet_text}}"</p>
     <h4 class="revolve revolve-right"
     ng-click="$ctrl.revolveRight($index); $ctrl.initMaps($index, item)">See where
@@ -13,13 +16,13 @@
     </div>
 
     <div class="panel-back">
-      <div id="map-{{$index}}">
+      <div id="map-{{$index}}" class="map">
       </div>
       <div class="address">
         <h3>{{item.name}}</h3>
-        <a href="{{$ctrl.api.facebook[$index].data.data[0].website}}"><h4>Website</h4></a>
+        <a href="{{$ctrl.api.facebook[$index].data.data[0].website}}"><h4>{{$ctrl.api.facebook[$index].data.data[0].website}}</h4></a>
         <p>{{item.display_phone}}<br/>
-          <a href="http://maps.google.com/?q={{item.name}}" target="_blank">
+          <a href="http://maps.google.com/?q={{item.name}}">
         {{item.location.address[0]}}<br/>
         {{item.location.address[1]}}
         {{item.location.city}}, {{item.location.state_code}} {{item.location.postal_code}}</a></p>
@@ -27,6 +30,17 @@
       <h4 class="revolve revolve-left"
       ng-click="$ctrl.revolveLeft($index)">
         <img src="../../../app/resources/revolve-left.svg" alt="Flip">Back</h4>
+    </div>
+
+    <div class="social-panel">
+      <div class="facebook" ng-repeat="post in $ctrl.api.facebook[$index].data.data[0].posts.data">
+          <img src="{{post.full_picture}}">
+          <h5>{{post.message}}</h5>
+      </div>
+      <div class="twitter" ng-repeat="status in $ctrl.api.twitter[$index]">
+        <img src="{{status.user.profile_image_url_https}}" alt="Twitter User Profile Picture">
+        <h5>{{status.text}}</h5>
+      </div>
     </div>
 
   </article>

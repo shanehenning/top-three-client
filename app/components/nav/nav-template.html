@@ -1,0 +1,9 @@
+<nav>
+      <a href="#/"><img src="../../../app/resources/logo.svg" alt="Top Three Logo"></a>
+
+      <form ng-if="$ctrl.display" ng-submit="$ctrl.reSearch(searchParams); searchParams = null; $ctrl.api.yelp = []">
+        <input ng-model="searchParams.term" type="text" name="term" placeholder="what">
+        <input ng-model="searchParams.location" type="text" name="location" placeholder="where">
+        <button type="submit" name="new-search-button">Search</button>
+      </form>
+</nav>

@@ -1,19 +1,19 @@
 @import "./lib/_theme";
 @import "./lib/base";
-
-nav{
-  img{
-    margin: 1em;
-    height: 32pt;
-
-  }
+main {
+    @import "./lib/_nav";
+    section {
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        @import "./lib/_contender";
+    }
 }
-
-section{
-  display: flex;
-  justify-content: center;
-  width: 95%;
-  margin: 0 auto;
-
-  @import "./lib/_contender";
+@media screen and (max-width : 768px) {
+    main {
+        section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 }

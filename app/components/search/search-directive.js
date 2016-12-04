@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.component('search', {
+  app.component('searchComponent', {
     controller: 'SearchController',
     template: require('./search-template.html')
   });

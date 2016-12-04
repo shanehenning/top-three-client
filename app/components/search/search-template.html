@@ -1,17 +1,17 @@
 <nav-component display="true"></nav-component>
 
 <section ng-init="$ctrl.retrieveData(); $ctrl.appendGoogleMaps()">
-  <article class="contender" ng-repeat="item in $ctrl.api.yelp track by $index">
+  <article class="contender" ng-repeat="item in $ctrl.api track by $index">
     <div class="panel-front">
-    <div class="showcase-image" style="background-image: url('{{item.image_url}}')">
+    <div class="showcase-image" style="background-image: url('{{item.yelp.image_url}}')">
       <div ng-style="{backgroundImage: $ctrl.getCorner($index)}" class="badge"></div>
-      <h5 ng-style="{backgroundImage: $ctrl.getHorizontal($index)}" class="review-badge">REVIEWS: {{item.review_count}}<span></span></h5>
+      <h5 ng-style="{backgroundImage: $ctrl.getHorizontal($index)}" class="review-badge">REVIEWS: {{item.yelp.review_count}}<span></span></h5>
     </div>
-    <h2>{{item.name}}</h2>
+    <h2>{{item.yelp.name}}</h2>
     <!-- <a href="{{$ctrl.api.facebook[$index].data.data[0].website}}"><h4>{{$ctrl.api.facebook[$index].data.data[0].website}}</h4></a> -->
-    <p>"{{item.snippet_text}}"</p>
+    <p>"{{item.yelp.snippet_text}}"</p>
     <h4 class="revolve revolve-right"
-    ng-click="$ctrl.revolveRight($index); $ctrl.initMaps($index, item)">See where
+    ng-click="$ctrl.revolveRight($index); $ctrl.initMaps($index, item.yelp)">See where
       <img src="../../../app/resources/revolve-right.svg" alt="Flip"></h4>
     </div>
 
@@ -19,13 +19,13 @@
       <div id="map-{{$index}}" class="map">
       </div>
       <div class="address">
-        <h3>{{item.name}}</h3>
-        <a href="{{$ctrl.api.facebook[$index].data.data[0].website}}"><h4>{{$ctrl.api.facebook[$index].data.data[0].website}}</h4></a>
-        <p>{{item.display_phone}}<br/>
-          <a href="http://maps.google.com/?q={{item.name}}">
-        {{item.location.address[0]}}<br/>
-        {{item.location.address[1]}}
-        {{item.location.city}}, {{item.location.state_code}} {{item.location.postal_code}}</a></p>
+        <h3>{{item.yelp.name}}</h3>
+        <a href="{{$index.facebook.data.data[0].website}}"><h4>{{$index.facebook.data.data[0].website}}</h4></a>
+        <p>{{item.yelp.display_phone}}<br/>
+          <a href="http://maps.google.com/?q={{item.yelp.name}}">
+        {{item.yelp.location.address[0]}}<br/>
+        {{item.yelp.location.address[1]}}
+        {{item.yelp.location.city}}, {{item.yelp.location.state_code}} {{item.yelp.location.postal_code}}</a></p>
       </div>
       <h4 class="revolve revolve-left"
       ng-click="$ctrl.revolveLeft($index)">
@@ -33,11 +33,11 @@
     </div>
 
     <div class="social-panel">
-      <div class="facebook" ng-repeat="post in $ctrl.api.facebook[$index].data.data[0].posts.data">
+      <div class="facebook" ng-repeat="post in $index.facebook.data.data[0].posts.data">
           <img src="{{post.full_picture}}">
           <h5>{{post.message}}</h5>
       </div>
-      <div class="twitter" ng-repeat="status in $ctrl.api.twitter[$index]">
+      <div class="twitter" ng-repeat="status in $index.twitter">
         <img src="{{status.user.profile_image_url_https}}" alt="Twitter User Profile Picture">
         <h5>{{status.text}}</h5>
       </div>

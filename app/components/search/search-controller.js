@@ -13,7 +13,7 @@ function SearchController(dataService, $location) {
   this.articles = document.getElementsByTagName('article');
 
   this.retrieveData = function(){
-    // if(dataService.api.yelp[0] !== undefined) return;
+    if(dataService.api[0].yelp !== undefined) return;
     let params = {
       term: $location.path().split('/').splice(2,1),
       location: $location.path().split('/').splice(3,1)

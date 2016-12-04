@@ -20,7 +20,7 @@
       </div>
       <div class="address">
         <h3>{{item.yelp.name}}</h3>
-        <a href="{{$index.facebook.data.data[0].website}}"><h4>{{$index.facebook.data.data[0].website}}</h4></a>
+        <a href="{{$index.facebook.website}}"><h4>{{$index.facebook.website}}</h4></a>
         <p>{{item.yelp.display_phone}}<br/>
           <a href="http://maps.google.com/?q={{item.yelp.name}}">
         {{item.yelp.location.address[0]}}<br/>
@@ -33,11 +33,11 @@
     </div>
 
     <div class="social-panel">
-      <div class="facebook" ng-repeat="post in $index.facebook.data.data[0].posts.data">
+      <div class="facebook" ng-repeat="post in item.facebook.posts.data">
           <img src="{{post.full_picture}}">
           <h5>{{post.message}}</h5>
       </div>
-      <div class="twitter" ng-repeat="status in $index.twitter">
+      <div class="twitter" ng-repeat="status in item.twitter">
         <img src="{{status.user.profile_image_url_https}}" alt="Twitter User Profile Picture">
         <h5>{{status.text}}</h5>
       </div>

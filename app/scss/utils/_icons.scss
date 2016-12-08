@@ -1,0 +1,21 @@
+.icon::before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    margin-right: .5em;
+}
+
+.arrow-right-icon::after{
+  content: '';
+   font-family: FontAwesome;
+   font-weight: normal;
+   font-style: normal;
+   margin: 0 auto;
+   margin-left: .75em;
+   vertical-align: bottom;
+   text-decoration:none;
+}

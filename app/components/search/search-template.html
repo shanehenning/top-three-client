@@ -2,44 +2,93 @@
 
 <section ng-init="$ctrl.retrieveData(); $ctrl.appendGoogleMaps()">
   <article class="contender" ng-repeat="item in $ctrl.api track by $index">
-    <div class="panel-front">
-    <div class="showcase-image" style="background-image: url('{{item.yelp.image_url}}')">
-      <div ng-style="{backgroundImage: $ctrl.getCorner($index)}" class="badge"></div>
-      <h5 ng-style="{backgroundImage: $ctrl.getHorizontal($index)}" class="review-badge">REVIEWS: {{item.yelp.review_count}}<span></span></h5>
-    </div>
-    <h2>{{item.yelp.name}}</h2>
-    <!-- <a href="{{$ctrl.api.facebook[$index].data.data[0].website}}"><h4>{{$ctrl.api.facebook[$index].data.data[0].website}}</h4></a> -->
-    <p>"{{item.yelp.snippet_text}}"</p>
-    <h4 class="revolve revolve-right"
-    ng-click="$ctrl.revolveRight($index); $ctrl.initMaps($index, item.yelp)">See where
-      <img src="../../../app/resources/revolve-right.svg" alt="Flip"></h4>
+    <div class="panel-business">
+      <div class="showcase-image" style="background-image: url('{{item.yelp.image_url}}')">
+        <div ng-style="{backgroundImage: $ctrl.getCorner($index)}" class="badge"></div>
+        <h5 ng-style="{backgroundImage: $ctrl.getHorizontal($index)}" class="review-badge">REVIEWS: {{item.yelp.review_count}}<span></span></h5>
+      </div>
+      <h2>{{item.yelp.name}}</h2>
+      <p>"{{item.yelp.snippet_text}}"</p>
+
+      <div class="revolving-footer">
+        <h4 class="revolve revolve-left" ng-click="$ctrl.businessToSocial($index)">
+          <img src="../../../app/resources/revolve-left.svg" alt="Flip">Social</h4>
+        <h4 class="revolve revolve-right" ng-click="$ctrl.businessToDetails($index); $ctrl.initMaps($index, item.yelp)">Details
+          <img src="../../../app/resources/revolve-right.svg" alt="Flip"></h4>
+      </div>
     </div>
 
-    <div class="panel-back">
+    <div class="panel-details">
+      <div class="business-banner">
+        <h2 class="hashtag">{{item.yelp.name}}</h2>
+      </div>
       <div id="map-{{$index}}" class="map">
       </div>
-      <div class="address">
-        <h3>{{item.yelp.name}}</h3>
-        <a href="{{$index.facebook.website}}"><h4>{{$index.facebook.website}}</h4></a>
-        <p>{{item.yelp.display_phone}}<br/>
+      <!-- <h3>{{item.yelp.name}}</h3> -->
+      <div class="details-window">
+        <a href="{{item.facebook.website}}"><h3 class="website" ng-if="item.facebook.website" >{{item.facebook.website_display}}</h3></a>
+        <p ng-if="item.facebook.price_range">{{item.facebook.price_range.split(' ')[0]}} {{item.yelp.categories[0][0]}}<span ng-if="item.yelp.categories[1]">, {{item.yelp.categories[1][0]}}</span></p>
+        <p class="contact">{{item.yelp.display_phone}}</p>
+        <p class="contact">
           <a href="http://maps.google.com/?q={{item.yelp.name}}">
         {{item.yelp.location.address[0]}}<br/>
         {{item.yelp.location.address[1]}}
         {{item.yelp.location.city}}, {{item.yelp.location.state_code}} {{item.yelp.location.postal_code}}</a></p>
+        <div ng-if="item.facebook.hours.wed_1_open" class="hours">
+        <h3>Hours</h3>
+        <p>
+        Mon: <span ng-if="item.facebook.hours.mon_1_open">{{item.facebook.hours.mon_1_open}} - {{item.facebook.hours.mon_1_close}} </span><span ng-if="!item.facebook.hours.mon_1_open">Closed </span><br/>
+        Tue: <span ng-if="item.facebook.hours.tue_1_open">{{item.facebook.hours.tue_1_open}} - {{item.facebook.hours.tue_1_close}} </span><span ng-if="!item.facebook.hours.tue_1_close">Closed </span><br/>
+        Wed: <span ng-if="item.facebook.hours.wed_1_open">{{item.facebook.hours.wed_1_open}} - {{item.facebook.hours.wed_1_close}} </span><span ng-if="!item.facebook.hours.wed_1_close">Closed </span><br/>
+        Thu: <span ng-if="item.facebook.hours.thu_1_open">{{item.facebook.hours.thu_1_open}} - {{item.facebook.hours.thu_1_close}} </span><span ng-if="!item.facebook.hours.thu_1_close">Closed </span><br/>
+        Fri: <span ng-if="item.facebook.hours.fri_1_open">{{item.facebook.hours.fri_1_open}} - {{item.facebook.hours.fri_1_close}} </span><span ng-if="!item.facebook.hours.fri_1_close">Closed </span><br/>
+        Sat: <span ng-if="item.facebook.hours.sat_1_open">{{item.facebook.hours.sat_1_open}} - {{item.facebook.hours.sat_1_close}} </span><span ng-if="!item.facebook.hours.sat_1_close">Closed </span><br/>
+        Sun: <span ng-if="item.facebook.hours.sun_1_open">{{item.facebook.hours.sun_1_open}} - {{item.facebook.hours.sun_1_close}} </span><span ng-if="!item.facebook.hours.sun_1_close">Closed </span><br/>
+        </p>
       </div>
-      <h4 class="revolve revolve-left"
-      ng-click="$ctrl.revolveLeft($index)">
-        <img src="../../../app/resources/revolve-left.svg" alt="Flip">Back</h4>
+    </div>
+      <div class="revolving-footer">
+        <h4 class="revolve revolve-left" ng-click="$ctrl.detailsToBusiness($index)">
+          <img src="../../../app/resources/revolve-left.svg" alt="Flip">Back</h4>
+      </div>
     </div>
 
-    <div class="social-panel">
-      <div class="facebook" ng-repeat="post in item.facebook.posts.data">
-          <img src="{{post.full_picture}}">
-          <h5>{{post.message}}</h5>
+    <div class="panel-social">
+      <div class="business-banner">
+        <h2 class="hashtag">#{{item.yelp.name.split(' ').join('')}}</h2>
       </div>
-      <div class="twitter" ng-repeat="status in item.twitter">
-        <img src="{{status.user.profile_image_url_https}}" alt="Twitter User Profile Picture">
-        <h5>{{status.text}}</h5>
+      <div class="social-window">
+        <h3 class="facebook-empty" ng-if="!item.facebook.posts.data">No recent Facebook posts</h3>
+        <div class="hr">
+        </div>
+        <div class="facebook" ng-repeat="post in item.facebook.posts.data">
+          <div class="profile-pic" style="background-image: url('{{item.facebook.picture.data.url}}')"></div>
+          <a class="fa fa-facebook" href="{{post.permalink_url}}"></a>
+          <div class="identity">
+            <h4 class="username">{{item.yelp.name.split(' ').splice(0,3).join(' ')}}</h4>
+            <h6>{{post.created_time}}</h6>
+          </div>
+          <h5>{{post.message}}</h5>
+          <img src="{{post.full_picture}}">
+          <div class="hr">
+          </div>
+        </div>
+        <h3 class="twitter-empty" ng-if="!item.twitter[0]">No recent Tweets</h3>
+        <div class="twitter" ng-repeat="status in item.twitter">
+          <img src="{{status.user.profile_image_url_https}}" alt="Twitter User Profile Picture">
+          <a class="fa fa-twitter" href="https://twitter.com/{{status.user.screen_name}}/status/{{status.id_str}}"></a>
+          <div class="identity">
+            <a href="https://www.twitter.com/{{status.user.screen_name}}"></a><h4 class="username">{{status.user.screen_name}}</h4>
+            <h6>{{status.created_at}}</h6>
+          </div>
+          <h5>{{status.text}}</h5>
+          <div class="hr">
+          </div>
+        </div>
+      </div>
+      <div class="revolving-footer">
+      <h4 class="revolve revolve-right" ng-click="$ctrl.socialToBusiness($index); $ctrl.initMaps($index, item.yelp)">Back
+        <img src="../../../app/resources/revolve-right.svg" alt="Flip"></h4>
       </div>
     </div>
 

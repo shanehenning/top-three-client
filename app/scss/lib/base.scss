@@ -19,6 +19,17 @@ a, p{
   font-family: $font-body;
 }
 
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input{
+  border: 1px solid #c2c2c2;
+  border-bottom: 2px solid #8f8f8f;
+  box-shadow: 1px 1px 1px 1px #c2c2c2;
+}
+
 .brand {
   font-size: 1em;
 }

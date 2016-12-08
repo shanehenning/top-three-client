@@ -11,6 +11,11 @@ function SearchController(dataService, $location) {
   this.marker = [];
   this.infoWindow = [];
   this.articles = document.getElementsByTagName('article');
+  this.panelSocial = document.getElementsByClassName('panel-social');
+  this.panelBusiness = document.getElementsByClassName('panel-business');
+  this.panelDetails = document.getElementsByClassName('panel-details');
+  this.socialWindows = document.getElementsByClassName('social-window');
+  this.detailsWindows = document.getElementsByClassName('details-window');
 
   this.retrieveData = function(){
     if(dataService.api[0].yelp !== undefined) return;
@@ -20,6 +25,13 @@ function SearchController(dataService, $location) {
     };
     console.log('SearchController retrieveData');
     dataService.makeApiCalls(params);
+  };
+
+  this.reSearch = function(params){
+    dataService.makeApiCalls(params);
+    console.log('HomeController dataService: ', dataService);
+    document.getElementById('drawer').checked = false;
+    document.getElementById('wait').style.cursor = 'wait';
   };
 
   this.getCorner = function(idx) {
@@ -33,18 +45,31 @@ function SearchController(dataService, $location) {
     if (idx === 2) return 'url(../../../app/resources/bronze-badge-horizontal.svg)';
   };
 
-  this.revolveRight = function(idx) {
-    this.articles[idx].className += ' revolved ';
-    if (this.articles[idx].classList.contains('returned')) {
-      this.articles[idx].className -= ' ' + 'returned' + ' ';
-    }
+  this.businessToDetails = function(idx) {
+    this.panelBusiness[idx].style.transform = 'rotateY(180deg)';
+    this.panelDetails[idx].style.transform = 'rotateY(0)';
+    document.getElementById('map-' + idx).style.height = '300px';
+    this.detailsWindows[idx].style.overflowY = 'scroll';
   };
 
-  this.revolveLeft = function(idx) {
-    this.articles[idx].className += ' returned ';
-    if (this.articles[idx].classList.contains('revolved')) {
-      this.articles[idx].className -= ' ' + 'revolved' + ' ';
-    }
+  this.detailsToBusiness = function(idx) {
+    this.panelDetails[idx].style.transform = 'rotateY(-180deg)';
+    this.panelBusiness[idx].style.transform = 'rotateY(0)';
+    this.detailsWindows[idx].style.overflowY = 'hidden';
+
+  };
+
+  this.businessToSocial = function(idx){
+    this.panelSocial[idx].style.transform = 'rotateY(0)';
+    this.panelBusiness[idx].style.transform = 'rotateY(-180deg)';
+    this.socialWindows[idx].style.overflowY = 'scroll';
+    document.getElementById('map-' + idx).style.height = 0;
+  };
+
+  this.socialToBusiness = function(idx){
+    this.panelSocial[idx].style.transform = 'rotateY(180deg)';
+    this.panelBusiness[idx].style.transform = 'rotateY(0)';
+    this.socialWindows[idx].style.overflowY = 'hidden';
   };
 
   this.initMaps = function(idx, item){

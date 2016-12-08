@@ -8,5 +8,6 @@ function HomeController(dataService, $location) {
   this.goSearch = function(params) {
     console.log('HomeController goSearch');
     dataService.makeApiCalls(params);
+    document.getElementById('wait').style.cursor = 'wait';
   };
 }

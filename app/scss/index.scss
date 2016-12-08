@@ -1,5 +1,17 @@
+@import "./utils/_icons";
+@import "./mixins/_fonts.scss";
 @import "./lib/_theme";
 @import "./lib/base";
+.logo {
+    height: 32pt;
+    margin-bottom: 0;
+    img {
+        position: absolute;
+        left: 0;
+        margin: 2em;
+        height: 32pt;
+    }
+}
 main {
     @import "./lib/_nav";
     section {
@@ -10,10 +22,20 @@ main {
     }
 }
 @media screen and (max-width : 768px) {
+    .logo {
+        margin-bottom: 2em;
+    }
     main {
         section {
             display: flex;
             flex-wrap: wrap;
+        }
+    }
+}
+@media screen and (max-width : 460px) {
+    .logo {
+        img {
+            margin-left: 1em;
         }
     }
 }

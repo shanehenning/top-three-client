@@ -1,9 +1,15 @@
 <nav>
-      <a href="#/"><img src="../../../app/resources/logo.svg" alt="Top Three Logo"></a>
-
-      <form ng-if="$ctrl.display" ng-submit="$ctrl.reSearch(searchParams); searchParams = null; $ctrl.api.yelp = []">
+  <!-- <div class="wipe"><a href="#/"><img class="logo logo-white" src="../../../app/resources/logo-white.svg" alt="Top Three Logo"></a></div> -->
+  <!-- <div class="logo"><a href="#/"><img src="../../../app/resources/logo.svg" alt="Top Three Logo"></a></div> -->
+    <input type="checkbox" name="drawer" id="drawer" class="drawer">
+    <label for="drawer" id="drawer-label" class="fa fa-search"></label>
+    <div class="pull-down">
+      <form autocomplete="off" ng-if="$ctrl.display" ng-submit="$ctrl.reSearch(searchParams); searchParams = null">
+        <label for="term"><icon class="fa fa-search"></icon></label>
         <input ng-model="searchParams.term" type="text" name="term" placeholder="what">
+        <label for="term"><icon class="fa fa-globe"></icon></label>
         <input ng-model="searchParams.location" type="text" name="location" placeholder="where">
         <button type="submit" name="new-search-button">Search</button>
       </form>
+    </div>
 </nav>

@@ -40,8 +40,8 @@ function SearchController(dataService, $location) {
     if (idx === 2) return 'url(resources/bronze-badge.svg)';
   };
   this.getHorizontal = function(idx) {
-    if (idx === 0) return 'url(resources/gold-badge-horizontal.svg)';
-    if (idx === 1) return 'url(resources/silver-badge-horizontal.svg)';
+    if (idx === 0) return 'url(../../../app/resources/gold-badge-horizontal.svg)';
+    if (idx === 1) return 'url(./app/resources/silver-badge-horizontal.svg)';
     if (idx === 2) return 'url(app/resources/bronze-badge-horizontal.svg)';
   };
 

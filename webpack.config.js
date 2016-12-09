@@ -11,12 +11,16 @@ const path = require('path');
 // module constants
 const production = process.env.NODE_ENV === 'production';
 const apiURL = process.env.API_URL || 'http://localhost:3000';
+const googleMapsKey = process.env.GOOGLE_MAPS_KEY;
+const facebookAppId = process.env.FACEBOOK_APP_ID;
 
 // webpack config
 var plugins = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(apiURL),
+    __FACEBOOK_APP_ID__: JSON.stringify(googleMapsKey),
+    __GOOGLE_MAPS_KEY__: JSON.stringify(facebookAppId)
   }),
   new CopyWebpackPlugin([
     {

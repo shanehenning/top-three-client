@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractText = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // module constants
 const production = process.env.NODE_ENV === 'production';
@@ -27,20 +26,6 @@ var plugins = [
     YELP_CONSUMER_SECRET: JSON.stringify(process.env.YELP_CONSUMER_SECRET),
     YELP_TOKEN_SECRET: JSON.stringify(process.env.YELP_TOKEN_SECRET)
   }),
-  new CopyWebpackPlugin([
-    {
-      from: 'components/*'
-    },
-    {
-      from: 'html/*'
-    },
-    {
-      from: 'resources/*'
-    },
-    {
-      from: 'services/*'
-    }
-  ])
 ];
 
 if (production) {
@@ -65,7 +50,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   sassLoader: {
-    includePaths: [`${dirname}/app/scss/lib`],
+    includePaths: [`${__dirname}/app/scss/lib`],
   },
   postcss: function() {
     return [autoprefixer];

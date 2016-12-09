@@ -72,7 +72,30 @@ function SearchController(dataService, $location) {
     this.socialWindows[idx].style.overflowY = 'hidden';
   };
 
-  this.initMaps = function(idx, item){
+  this.startFacebook = function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = '//connect.facebook.net/en_US/sdk.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk');
+
+  this.fbAsyncInit = function(){
+    FB.init({
+      appId      : `${__FACEBOOK_APP_ID__}`,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  this.appendGoogleMaps = function(){
+    let script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + __GOOGLE_MAPS_KEY__;
+    document.body.appendChild(script);
+  };
+
+  this.getMaps = function(idx, item){
     this.address[idx] = item.location.address[0] + ' ' + item.location.city + ' ' + item.location.postal_code;
     this.map[idx] = new google.maps.Map(document.getElementById('map-' + idx), {
       center: {

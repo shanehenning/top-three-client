@@ -342,6 +342,9 @@ article {
             .details-window {
                 height: calc(100% - (17.5vh + 2em + 5vw + 62px));
                 padding: 0.5em;
+                .website{
+                  font-size: 11pt;
+                }
             }
         }
         .panel-social {
@@ -354,13 +357,6 @@ article {
 }
 @media screen and (max-width : 460px) {
     article {
-      .panel-details{
-        .details-window{
-          .website{
-            font-size: 11pt;
-          }
-        }
-      }
         .panel-social {
             .social-window {
                 height: calc(100% - 2em - 5vw - 62px);

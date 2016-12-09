@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('SearchController', ['dataService', '$location', SearchController]);
+  app.controller('SearchController', ['dataService', '$location', '$q', SearchController]);
 };
 
-function SearchController(dataService, $location) {
+function SearchController(dataService, $location, $q) {
   this.api = dataService.api;
   this.address = [];
   this.map = [];
@@ -40,9 +40,9 @@ function SearchController(dataService, $location) {
     if (idx === 2) return 'url(resources/bronze-badge.svg)';
   };
   this.getHorizontal = function(idx) {
-    if (idx === 0) return 'url(../../../app/resources/gold-badge-horizontal.svg)';
-    if (idx === 1) return 'url(./app/resources/silver-badge-horizontal.svg)';
-    if (idx === 2) return 'url(app/resources/bronze-badge-horizontal.svg)';
+    if (idx === 0) return 'url(resources/gold-badge-horizontal.svg)';
+    if (idx === 1) return 'url(resources/silver-badge-horizontal.svg)';
+    if (idx === 2) return 'url(resources/bronze-badge-horizontal.svg)';
   };
 
   this.businessToDetails = function(idx) {
@@ -73,6 +73,14 @@ function SearchController(dataService, $location) {
   };
 
   this.startFacebook = function(d, s, id){
+    return $q(function(resolve,reject){
+      resolve(this.initFacebook(d,s,id));
+    }).then(()=>{
+      this.fbAsyncInit();
+    });
+  };
+
+  this.initFacebook = function(d,s,id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
     js = d.createElement(s); js.id = id;

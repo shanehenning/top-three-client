@@ -3,6 +3,7 @@
 // npm modules
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const path = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractText = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -56,6 +57,7 @@ if (production) {
 }
 
 module.exports = {
+  context: path.join(__dirname, 'app'),
   entry: `${__dirname}/app/entry.js`,
   debug: !production,
   devtool: production ? false : 'eval',

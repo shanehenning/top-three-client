@@ -23,7 +23,9 @@ function dataService($http, $location) {
           let newImage = idx.yelp.image_url.slice(0, idx.yelp.image_url.length - 6);
           newImage += 'o.jpg';
           idx.yelp.image_url = newImage;
-
+          if(idx.yelp.name.length > 30){
+            idx.yelp.name_truncated = idx.yelp.name.substr(0,30);
+          }
           var twitterParams = {
             q: idx.yelp.name + ' ' + idx.yelp.location.city + ' since:2014-01-01',
           };
@@ -69,9 +71,9 @@ function dataService($http, $location) {
               if (idx.facebook.website) {
                 idx.facebook.website_display = '';
                 idx.facebook.website_display = idx.facebook.website;
-                idx.facebook.website_display = idx.facebook.website_display.split('www.')[1] === undefined ? idx.facebook.website_display : idx.facebook.website_display.split('www.')[1];
                 idx.facebook.website_display = idx.facebook.website_display.split('https://')[1] === undefined ? idx.facebook.website_display : idx.facebook.website_display.split('https://')[1];
                 idx.facebook.website_display = idx.facebook.website_display.split('http://')[1] === undefined ? idx.facebook.website_display : idx.facebook.website_display.split('http://')[1];
+                idx.facebook.website_display = idx.facebook.website_display.split('www.')[1] === undefined ? idx.facebook.website_display : idx.facebook.website_display.split('www.')[1];
                 idx.facebook.website_display = idx.facebook.website_display.charAt(idx.facebook.website_display.length - 1) === '/' ? idx.facebook.website_display.substr(0, idx.facebook.website_display.length - 1) : idx.facebook.website_display;
               }
 

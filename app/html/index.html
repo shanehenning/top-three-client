@@ -12,7 +12,7 @@
 </head>
 
 <body ng-init="appendGoogleMaps(); startFacebook()">
-  <div class="logo"><a href="#/"><img src="resources/logo.svg" alt="Top Three Logo"></a></div>
+  <div ng-init="appendGoogleMaps()" class="logo"><a href="#/"><img src="resources/logo.svg" alt="Top Three Logo"></a></div>
   <main id="wait" ng-view>
   </main>
   </body>

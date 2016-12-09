@@ -6,7 +6,6 @@ module.exports = exports = (app) => {
 
 function googleFacebookService($scope, $q){
   $scope.startFacebook = function(d, s, id){
-    console.log('startFacebook');
     return $q(function(resolve,reject){
       $scope.initFacebook(d,s,id);
       resolve('Facebook initialized');
@@ -16,7 +15,6 @@ function googleFacebookService($scope, $q){
   };
 
   $scope.initFacebook = function(d,s,id){
-    console.log('initFacebook');
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
     js = d.createElement(s); js.id = id;
@@ -25,7 +23,6 @@ function googleFacebookService($scope, $q){
   }(document, 'script', 'facebook-jssdk');
 
   $scope.fbAsyncInit = function(){
-    console.log('fbAsyncInit');
     FB.init({
       appId      : `${__FACEBOOK_APP_ID__}`,
       xfbml      : true,
@@ -34,7 +31,6 @@ function googleFacebookService($scope, $q){
   };
 
   $scope.appendGoogleMaps = function(){
-    console.log('appending google maps');
     let script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?key=' + __GOOGLE_MAPS_KEY__;

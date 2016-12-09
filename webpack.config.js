@@ -3,10 +3,10 @@
 // npm modules
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const path = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractText = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 // module constants
 const production = process.env.NODE_ENV === 'production';
@@ -17,16 +17,16 @@ var plugins = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
     API_URL: JSON.stringify(apiURL),
-    FACEBOOK_APP_ID:JSON.stringify(process.env.FACEBOOK_APP_ID),
-    FACEBOOK_APP_SECRET:JSON.stringify(process.env.FACEBOOK_APP_SECRET),
-    TWITTER_CONSUMER_KEY: JSON.stringify(process.env.TWITTER_CONSUMER_KEY),
-    TWITTER_CONSUMER_SECRET:JSON.stringify(process.env.TWITTER_CONSUMER_SECRET),
-    TWITTER_ACCESS_TOKEN:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN),
-    TWITTER_ACCESS_TOKEN_SECRET:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN_SECRET),
-    YELP_OAUTH_CONSUMER_KEY: JSON.stringify(process.env.YELP_OAUTH_CONSUMER_KEY),
-    YELP_OAUTH_TOKEN: JSON.stringify(process.env.YELP_OAUTH_TOKEN),
-    YELP_CONSUMER_SECRET: JSON.stringify(process.env.YELP_CONSUMER_SECRET),
-    YELP_TOKEN_SECRET: JSON.stringify(process.env.YELP_TOKEN_SECRET)
+    // FACEBOOK_APP_ID:JSON.stringify(process.env.FACEBOOK_APP_ID),
+    // FACEBOOK_APP_SECRET:JSON.stringify(process.env.FACEBOOK_APP_SECRET),
+    // TWITTER_CONSUMER_KEY: JSON.stringify(process.env.TWITTER_CONSUMER_KEY),
+    // TWITTER_CONSUMER_SECRET:JSON.stringify(process.env.TWITTER_CONSUMER_SECRET),
+    // TWITTER_ACCESS_TOKEN:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN),
+    // TWITTER_ACCESS_TOKEN_SECRET:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN_SECRET),
+    // YELP_OAUTH_CONSUMER_KEY: JSON.stringify(process.env.YELP_OAUTH_CONSUMER_KEY),
+    // YELP_OAUTH_TOKEN: JSON.stringify(process.env.YELP_OAUTH_TOKEN),
+    // YELP_CONSUMER_SECRET: JSON.stringify(process.env.YELP_CONSUMER_SECRET),
+    // YELP_TOKEN_SECRET: JSON.stringify(process.env.YELP_TOKEN_SECRET)
   }),
   new CopyWebpackPlugin([
     {

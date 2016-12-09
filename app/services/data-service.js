@@ -1,6 +1,7 @@
 'use strict';
 
 const moment = require('moment');
+const API_URL = process.env.API_URL;
 // moment.format();
 
 module.exports = exports = (app) => {

@@ -17,16 +17,8 @@ var plugins = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(apiURL),
-    // FACEBOOK_APP_ID:JSON.stringify(process.env.FACEBOOK_APP_ID),
-    // FACEBOOK_APP_SECRET:JSON.stringify(process.env.FACEBOOK_APP_SECRET),
-    // TWITTER_CONSUMER_KEY: JSON.stringify(process.env.TWITTER_CONSUMER_KEY),
-    // TWITTER_CONSUMER_SECRET:JSON.stringify(process.env.TWITTER_CONSUMER_SECRET),
-    // TWITTER_ACCESS_TOKEN:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN),
-    // TWITTER_ACCESS_TOKEN_SECRET:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN_SECRET),
-    // YELP_OAUTH_CONSUMER_KEY: JSON.stringify(process.env.YELP_OAUTH_CONSUMER_KEY),
-    // YELP_OAUTH_TOKEN: JSON.stringify(process.env.YELP_OAUTH_TOKEN),
-    // YELP_CONSUMER_SECRET: JSON.stringify(process.env.YELP_CONSUMER_SECRET),
-    // YELP_TOKEN_SECRET: JSON.stringify(process.env.YELP_TOKEN_SECRET)
+    __FACEBOOK_APP_ID__: JSON.stringify(process.env.FACEBOOK_APP_ID),
+    __GOOGLE_MAPS_KEY__: JSON.stringify(process.env.GOOGLE_MAPS_KEY)
   }),
   new CopyWebpackPlugin([
     {

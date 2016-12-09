@@ -2,6 +2,9 @@
 
 // webpack assets
 require('!!file?name=[name].[ext]!./html/index.html');
+require('!!file?name=[name].[ext]!./services/maps.js');
+require('!!file?name=[name].[ext]!./services/facebook.js');
+
 require('./scss/index.scss');
 
 // npm modules

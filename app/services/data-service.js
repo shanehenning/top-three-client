@@ -1,7 +1,6 @@
 'use strict';
 
 const moment = require('moment');
-// moment.format();
 
 module.exports = exports = (app) => {
   app.service('dataService', ['$http', '$location', dataService]);

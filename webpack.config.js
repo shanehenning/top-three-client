@@ -18,8 +18,12 @@ const facebookAppId = process.env.FACEBOOK_APP_ID;
 var plugins = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
-    __API_URL__: JSON.stringify(apiURL),
+    __API_URL__: JSON.stringify(apiURL)
+  }),
+  new webpack.DefinePlugin({
     __FACEBOOK_APP_ID__: JSON.stringify(googleMapsKey),
+  }),
+  new webpack.DefinePlugin({
     __GOOGLE_MAPS_KEY__: JSON.stringify(facebookAppId)
   }),
   new CopyWebpackPlugin([

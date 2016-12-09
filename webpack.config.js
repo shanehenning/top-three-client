@@ -17,8 +17,6 @@ var plugins = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(apiURL),
-    __FACEBOOK_APP_ID__: JSON.stringify(process.env.FACEBOOK_APP_ID),
-    __GOOGLE_MAPS_KEY__: JSON.stringify(process.env.GOOGLE_MAPS_KEY)
   }),
   new CopyWebpackPlugin([
     {

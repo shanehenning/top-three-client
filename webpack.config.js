@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractText = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // module constants
 const production = process.env.NODE_ENV === 'production';
@@ -37,6 +38,20 @@ if (production) {
       },
     }),
     new CleanPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: 'components/*'
+      },
+      {
+        from: '/html/*'
+      },
+      {
+        from: 'resources/*'
+      },
+      {
+        from: 'services/*'
+      }
+    ])
   ]);
 }
 

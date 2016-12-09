@@ -1,7 +1,5 @@
 <nav-component display="true"></nav-component>
-<div ng-init="$ctrl.appendGoogleMaps()">
-</div>
-<section ng-init="$ctrl.retrieveData(); $ctrl.startFacebook()">
+<section ng-init="$ctrl.retrieveData()">
   <article class="contender" ng-repeat="item in $ctrl.api track by $index">
     <div class="panel-business">
       <div class="showcase-image" style="background-image: url('{{item.yelp.image_url}}')">

@@ -14,17 +14,17 @@ const apiURL = process.env.API_URL || 'http://localhost:3000';
 var plugins = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
-    _API_URL__: JSON.stringify(apiURL),
-    __FACEBOOK_APP_ID__:JSON.stringify(process.env.FACEBOOK_APP_ID),
-    __FACEBOOK_APP_SECRET__:JSON.stringify(process.env.FACEBOOK_APP_SECRET),
-    __TWITTER_CONSUMER_KEY__: JSON.stringify(process.env.TWITTER_CONSUMER_KEY),
-    __TWITTER_CONSUMER_SECRET__:JSON.stringify(process.env.TWITTER_CONSUMER_SECRET),
-    __TWITTER_ACCESS_TOKEN__:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN),
-    __TWITTER_ACCESS_TOKEN_SECRET__:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN_SECRET),
-    __YELP_OAUTH_CONSUMER_KEY__: JSON.stringify(process.env.YELP_OAUTH_CONSUMER_KEY),
-    __YELP_OAUTH_TOKEN__: JSON.stringify(process.env.YELP_OAUTH_TOKEN),
-    __YELP_CONSUMER_SECRET__: JSON.stringify(process.env.YELP_CONSUMER_SECRET),
-    __YELP_TOKEN_SECRET__: JSON.stringify(process.env.YELP_TOKEN_SECRET)
+    API_URL: JSON.stringify(apiURL),
+    FACEBOOK_APP_ID:JSON.stringify(process.env.FACEBOOK_APP_ID),
+    FACEBOOK_APP_SECRET:JSON.stringify(process.env.FACEBOOK_APP_SECRET),
+    TWITTER_CONSUMER_KEY: JSON.stringify(process.env.TWITTER_CONSUMER_KEY),
+    TWITTER_CONSUMER_SECRET:JSON.stringify(process.env.TWITTER_CONSUMER_SECRET),
+    TWITTER_ACCESS_TOKEN:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN),
+    TWITTER_ACCESS_TOKEN_SECRET:JSON.stringify(process.env.TWITTER_ACCESS_TOKEN_SECRET),
+    YELP_OAUTH_CONSUMER_KEY: JSON.stringify(process.env.YELP_OAUTH_CONSUMER_KEY),
+    YELP_OAUTH_TOKEN: JSON.stringify(process.env.YELP_OAUTH_TOKEN),
+    YELP_CONSUMER_SECRET: JSON.stringify(process.env.YELP_CONSUMER_SECRET),
+    YELP_TOKEN_SECRET: JSON.stringify(process.env.YELP_TOKEN_SECRET)
   }),
 ];
 
@@ -41,7 +41,7 @@ if (production) {
 }
 
 module.exports = {
-  entry: `${__dirname}/app/entry.js`,
+  entry: `${dirname}/app/entry.js`,
   debug: !production,
   devtool: production ? false : 'eval',
   plugins: plugins,
@@ -50,7 +50,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   sassLoader: {
-    includePaths: [`${__dirname}/app/scss/lib`],
+    includePaths: [`${dirname}/app/scss/lib`],
   },
   postcss: function() {
     return [autoprefixer];

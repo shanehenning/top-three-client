@@ -11,7 +11,7 @@ function dataService($http, $location) {
   this.api = [{}, {}, {}];
 
   this.makeApiCalls = function(params) {
-    $http.post(`${__API_URL__}/api/yelp`, params)
+    $http.post(`${API_URL}/api/yelp`, params)
       .then((data) => {
         data = data.data.businesses.sort(function(a, b) {
           return b.review_count - a.review_count;

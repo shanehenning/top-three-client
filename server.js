@@ -5,7 +5,7 @@ const app = express();
 const serverPort = process.env.PORT || 8080;
 const cors = require('cors');
 
-app.pre(cors());
+app.use(cors());
 app.use(express.static(`${__dirname}/build`));
 
 app.listen(serverPort, function() {

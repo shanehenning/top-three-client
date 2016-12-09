@@ -16,7 +16,7 @@ const apiURL = process.env.API_URL || 'http://localhost:3000';
 var plugins = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
-    API_URL: JSON.stringify(apiURL),
+    __API_URL__: JSON.stringify(apiURL),
     // FACEBOOK_APP_ID:JSON.stringify(process.env.FACEBOOK_APP_ID),
     // FACEBOOK_APP_SECRET:JSON.stringify(process.env.FACEBOOK_APP_SECRET),
     // TWITTER_CONSUMER_KEY: JSON.stringify(process.env.TWITTER_CONSUMER_KEY),

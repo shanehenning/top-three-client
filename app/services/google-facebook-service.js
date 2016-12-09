@@ -1,17 +1,17 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.service('googleFacebookService', ['$scope', googleFacebookService]);
+  app.service('googleFacebookService', ['$scope', '$q', googleFacebookService]);
 };
 
-function googleFacebookService($scope){
+function googleFacebookService($scope, $q){
   $scope.startFacebook = function(d, s, id){
     console.log('startFacebook');
     return $q(function(resolve,reject){
-      this.initFacebook(d,s,id);
+      $scope.initFacebook(d,s,id);
       resolve('Facebook initialized');
     }).then(()=>{
-      this.fbAsyncInit();
+      $scope.fbAsyncInit();
     });
   };
 

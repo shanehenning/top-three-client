@@ -11,14 +11,10 @@
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400|Raleway:400,700,900|Open+Sans:300,400" rel="stylesheet">
 </head>
 
-<body ng-init="startFacebook(); appendGoogleMaps()">
+<body ng-init="appendGoogleMaps(); startFacebook()">
   <div class="logo"><a href="#/"><img src="resources/logo.svg" alt="Top Three Logo"></a></div>
   <main id="wait" ng-view>
   </main>
-
-  <!-- <script src="./services/maps.js"></script> -->
-  <!-- <script src="./services/facebook.js"></script> -->
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key="></script> -->
   </body>
 
 </html>

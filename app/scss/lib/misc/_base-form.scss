@@ -1,0 +1,46 @@
+label {
+    position: relative;
+    left: 32px;
+    font-size: 14pt;
+    color: $teal-light;
+}
+input {
+    font-size: 14pt;
+    font-family: $font-form;
+    font-weight: 400;
+    box-shadow: 1px 1px 2px 0.5px $teal-dark;
+    border-bottom: 2px solid $teal-black;
+    padding: 5px 5px 5px 37px;
+    border: 0;
+    width: 170px;
+    margin: 5px;
+    color: $teal-dark;
+    background-color: $panel;
+    border-radius: 1px;
+}
+input:focus {
+    outline: none;
+    box-shadow: 2px 2px 2px 0.5px $teal-black;
+    background-color: #fcfcfc;
+}
+button {
+    font-size: 12pt;
+    font-family: $font-title;
+    font-weight: 700;
+    text-shadow: 1px 1px $teal-midnight;
+    text-transform: uppercase;
+    border: 0;
+    box-shadow: 1px 1px 2px 0.5px $teal-dark;
+    border-bottom: 1px solid $teal-black;
+    border-radius: 1px;
+    padding: 8px;
+    margin-top: 1px;
+    margin-left: 20px;
+    cursor: pointer;
+    background: radial-gradient(#ffd91a 25%, #ad8b00 100%);
+    color: $panel;
+}
+button:hover {
+    filter: brightness(105%);
+    box-shadow: 2px 2px 2px 0.5px $teal-black;
+}

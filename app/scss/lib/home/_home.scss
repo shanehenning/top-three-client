@@ -1,0 +1,39 @@
+.home {
+  @import './misc/_parralax';
+    top: 17.5%;
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 2em);
+    margin: 0 auto;
+    padding: 1em;
+    z-index: 2;
+    text-align: center;
+    .home-logo {
+        height: 100pt;
+        margin: 1em auto;
+        filter:drop-shadow(2px 2px 2px $teal-midnight);
+    }
+    .welcome {
+        h2 {
+            text-shadow: 1px 1px $teal-midnight;
+            color: $panel;
+        }
+        p {
+            margin-bottom: 2em;
+            color: $panel;
+        }
+    }
+    @import './_home-form';
+}
+@import './misc/_loader';
+
+@media screen and (max-width : 768px) {
+    .home {
+        top: 0;
+        .welcome {
+            p {
+                margin: auto;
+            }
+        }
+    }
+}

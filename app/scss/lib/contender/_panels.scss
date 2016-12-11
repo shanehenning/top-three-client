@@ -1,0 +1,16 @@
+.panel-business,
+.panel-details,
+.panel-social {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-out;
+    transform-style: preserve-3d;
+    border: 1px solid $teal-dark;
+    border-bottom: 2px solid $teal-black;
+    box-shadow: 0.5px 1px 1px 1px $teal-dark;
+}
+@import './business/_panel-business';
+@import './details/_panel-details';
+@import './social/_panel-social';

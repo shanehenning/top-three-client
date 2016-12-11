@@ -7,18 +7,18 @@
   <div id="foreground"> -->
   <!-- </div> -->
 
-  <img class="logo" src="../../../app/resources/logo-white.svg">
+  <img class="logo home-logo" src="../../../app/resources/logo-white.svg">
 
   <div class="welcome">
     <h2>Too much choice means no choice.</h2>
     <p>Search for anything, anywhere.
       <br/> See only the top three most popular choices.</p>
   </div>
-  <div class="markers">
+  <!-- <div class="markers">
     <img id="marker-one" src="../../../app/resources/marker.svg">
     <img id="marker-two" src="../../../app/resources/marker.svg">
     <img id="marker-three" src="../../../app/resources/marker.svg">
-  </div>
+  </div> -->
   <form ng-show="loading !=true" ng-model="searchParams" ng-submit="loading = true; $ctrl.goSearch(searchParams)" autocomplete="off">
     <label for="term">
       <icon class="fa fa-search"></icon>

@@ -1,0 +1,35 @@
+.revolving-footer {
+    position: absolute;
+    width: calc(100% - 2em);
+    background-color: $panel;
+    height: 30px;
+    padding: 1em;
+    bottom: 0;
+    border-top: 2px solid #f0f0f0;
+}
+h4 {
+    margin: 0;
+}
+.revolve {
+    img {
+        height: 30px;
+        vertical-align: middle;
+    }
+}
+.revolve-left:hover, .revolve-right:hover{
+  filter: brightness(200%);
+}
+.revolve-left {
+  cursor: pointer;
+    float: left;
+    img {
+        margin-right: 0.5em;
+    }
+}
+.revolve-right {
+  cursor: pointer;
+    float: right;
+    img {
+        margin-left: 0.5em;
+    }
+}

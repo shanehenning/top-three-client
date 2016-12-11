@@ -1,0 +1,50 @@
+.details-window {
+    overflow-y: hidden;
+    height: calc(100% - (19.25vh + 1.5vw + (5vw / 3) + 2em + 62px));
+    padding: 0.75em;
+    .website {
+        overflow-wrap: break-word;
+        font-size: 1.5vw;
+    }
+    .website:hover {
+        filter: brightness(200%);
+    }
+    .fa-yelp {
+        transition: linear 0.05s;
+    }
+    .fa-yelp:hover {
+        color: #d32323;
+        transform: scale(1.25);
+    }
+    h4 {
+        font-family: $font-title;
+        font-weight: 700;
+        margin: 1.5em 0;
+        padding: 0;
+    }
+    p {
+        font-family: $font-body;
+        font-weight: 300;
+        font-size: 11pt;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .contact {
+        font-weight: 400;
+        margin-top: 0.85em;
+        margin-bottom: 0.85em;
+    }
+    .address:hover {
+        filter: brightness(200%);
+    }
+}
+
+@media screen and (max-width : 768px) {
+  .details-window {
+    height: calc(100% - (17.5vh + 3em + 5vw + 62px));
+      padding: 0.5em;
+      .website{
+        font-size: 11pt;
+      }
+  }
+}

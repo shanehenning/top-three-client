@@ -1,15 +1,14 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('SearchController', ['dataService', '$location', '$q', SearchController]);
+  app.controller('SearchController', ['dataService', '$location', '$log', SearchController]);
 };
 
-function SearchController(dataService, $location, $q) {
+function SearchController(dataService, $location, $log) {
   this.api = dataService.api;
   this.address = [];
   this.map = [];
   this.marker = [];
-  this.infoWindow = [];
   this.articles = document.getElementsByTagName('article');
   this.panelSocial = document.getElementsByClassName('panel-social');
   this.panelBusiness = document.getElementsByClassName('panel-business');
@@ -18,19 +17,18 @@ function SearchController(dataService, $location, $q) {
   this.detailsWindows = document.getElementsByClassName('details-window');
 
   this.retrieveData = function(){
-    // console.log('dataService.api[0].yelp: ', dataService.api[0].yelp);
     if(dataService.api[0].yelp !== undefined) return;
     let params = {
       term: $location.path().split('/').splice(2,1),
       location: $location.path().split('/').splice(3,1)
     };
-    console.log('SearchController retrieveData');
+    $log.debug('SearchController retrieveData');
     dataService.makeApiCalls(params);
   };
 
   this.reSearch = function(params){
     dataService.makeApiCalls(params);
-    console.log('HomeController dataService: ', dataService);
+    $log.debug('HomeController dataService: ', dataService);
     document.getElementById('drawer').checked = false;
     document.getElementById('wait').style.cursor = 'wait';
   };
@@ -89,13 +87,5 @@ function SearchController(dataService, $location, $q) {
       },
       map: this.map[idx],
     });
-
-    // this.infoWindow[idx] = new google.maps.InfoWindow({
-    //   content: '<a href="http://maps.google.com/?q=' + this.address[idx] + '">' + item.name + '</a>'
-    // });
-    // console.log('this.infoWindow: ', this.infoWindow);
-    // this.marker[idx].addListener('click', function(){
-    //   this.infoWindow[idx].open(this.map[idx], this.marker[idx]);
-    // });
   };
 }

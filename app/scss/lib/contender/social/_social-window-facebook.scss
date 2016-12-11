@@ -1,0 +1,60 @@
+.facebook-empty {
+    text-align: center;
+    color: $facebook;
+    font-size: calc(5.5vw / 3);
+}
+.facebook {
+    margin: 1em;
+    padding: 0.25em;
+    .profile-pic {
+        height: 50px;
+        width: 50px;
+        background-position: center;
+        background-size: cover;
+        display: inline-block;
+    }
+    .identity {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 3px;
+        h4 {
+            font-family: $font-title;
+            font-weight: 700;
+            margin: 5px;
+        }
+        h6 {
+            font-family: $font-body;
+            margin: 0 0 0 5px;
+            font-weight: 400;
+        }
+    }
+    img {
+        width: auto;
+        max-width: 90%;
+        max-height: 200px;
+        text-align: center;
+        display: block;
+        margin-bottom: 1.5em;
+    }
+    .fa-facebook {
+        float: right;
+        margin-top: calc(15px - .25em);
+        margin-right: calc(10px - .25em);
+        text-decoration: none;
+        padding: 0.25em;
+        transition: linear 0.05s;
+    }
+    .fa-facebook:hover {
+        transform: scale(1.25);
+        color: $facebook;
+    }
+    h5 {
+        line-height: 12pt;
+        font-weight: 300;
+    }
+}
+@media screen and (max-width : 768px) {
+    .facebook-empty{
+        font-size: 1.17em;
+    }
+}

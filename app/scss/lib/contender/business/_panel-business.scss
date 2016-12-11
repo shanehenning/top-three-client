@@ -1,0 +1,72 @@
+.panel-business {
+    position: relative;
+    backface-visibility: hidden;
+    background-color: $panel;
+    z-index: 1;
+    .showcase-image {
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 300px;
+        max-height: 25vh;
+        position: relative;
+        .badge {
+            position: relative;
+            left: -4px;
+            top: -4px;
+            height: 94px;
+            width: 94px;
+        }
+        .review-badge {
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            bottom: 7px;
+            right: -5px;
+            padding: 4px 6px;
+            margin: 0;
+            color: white;
+            text-shadow: 0.75px 0.75px black;
+            span {
+                position: absolute;
+                right: 0;
+                bottom: -5px;
+                border-right: 5px solid transparent;
+                border-top: 5px solid $teal-black;
+            }
+        }
+    }
+    h2 {
+        min-height: 87px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: $font-title;
+        font-weight: 700;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    p {
+        font-family: $font-body;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 16pt;
+        padding-left: 1em;
+        padding-right: 1em;
+        overflow: hidden;
+        padding-bottom: 56px;
+    }
+    .revolving-footer {
+        border: 0;
+        border-top: 0;
+    }
+}
+@media screen and (max-width : 768px) {
+    .panel-business {
+        h2 {
+            min-height: auto;
+        }
+    }
+}

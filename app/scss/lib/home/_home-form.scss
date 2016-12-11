@@ -1,0 +1,30 @@
+form {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin-right: 22px;
+    label {
+        top: 12px;
+    }
+    button {
+        height: 37px;
+        margin-top: 4px;
+    }
+}
+@media screen and (max-width : 768px) {
+    form {
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+        label {
+            top: 29px;
+            left: -88px;
+        }
+        input {
+            margin: 0;
+        }
+        input:nth-child(4) {
+            margin-bottom: 1em;
+        }
+    }
+}

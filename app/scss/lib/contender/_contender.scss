@@ -1,0 +1,16 @@
+article {
+    perspective: 2000px;
+    width: 31%;
+    height: auto;
+    margin: 2.5em auto 0.75em;
+    position: relative;
+    backface-visibility: hidden;
+    @import './_panels';
+    @import './_revolve';
+}
+@include responsive-font;
+@media screen and (max-width : 768px) {
+    article {
+        width: 90%;
+    }
+}

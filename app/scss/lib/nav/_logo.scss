@@ -1,0 +1,21 @@
+.logo {
+    height: 32pt;
+    margin-bottom: 0;
+    img {
+        position: absolute;
+        left: 0;
+        margin: 2em;
+        height: 32pt;
+    }
+    img:hover {
+        filter:drop-shadow(2px 2px 2px $teal-midnight);
+    }
+}
+@media screen and (max-width : 768px) {
+    .logo {
+        img {
+            margin-top: 2.3em;
+            margin-left: 1em;
+        }
+    }
+}

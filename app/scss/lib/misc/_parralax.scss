@@ -1,0 +1,37 @@
+// #background, #middleground, #foreground{
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-repeat: no-repeat;
+// }
+// #background{
+//   z-index: 1;
+//   background-image: url('../../app/resources/marker.svg');
+// }
+// #middleground{
+//   z-index: 2;
+//   background-image: url('../../app/resources/marker.svg');
+// }
+// #foreground{
+//   z-index: 3;
+//   background-image: url('../../app/resources/marker.svg');
+// }
+
+.markers {
+    display: none;
+    position: absolute;
+    background-color: rgba(255,255,255,.2);
+    z-index: 1 !important;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    bottom: 20%;
+    left: 20%;
+    right: 20%;
+    img {
+        position: relative;
+        height: 32pt;
+    }
+}

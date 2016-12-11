@@ -3,10 +3,10 @@
 const moment = require('moment');
 
 module.exports = exports = (app) => {
-  app.service('dataService', ['$http', '$location', dataService]);
+  app.service('dataService', ['$http', '$location', '$log', dataService]);
 };
 
-function dataService($http, $location) {
+function dataService($http, $location, $log) {
   this.api = [{}, {}, {}];
 
   this.makeApiCalls = function(params) {
@@ -22,8 +22,8 @@ function dataService($http, $location) {
           let newImage = idx.yelp.image_url.slice(0, idx.yelp.image_url.length - 6);
           newImage += 'o.jpg';
           idx.yelp.image_url = newImage;
-          if(idx.yelp.name.length > 30){
-            idx.yelp.name_truncated = idx.yelp.name.substr(0,30);
+          if(idx.yelp.name.length > 25){
+            idx.yelp.name_truncated = idx.yelp.name.substr(0,25);
           }
           var twitterParams = {
             q: idx.yelp.name + ' ' + idx.yelp.location.city + ' since:2014-01-01',
@@ -82,7 +82,7 @@ function dataService($http, $location) {
             });
         });
 
-        console.log('dataService.api: ', this.api);
+        $log.debug('dataService.api: ', this.api);
         $location.path('/search/' + params.term + '/' + params.location);
       });
   };

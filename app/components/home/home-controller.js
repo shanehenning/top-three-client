@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('HomeController', ['dataService', '$location', '$window', HomeController]);
+  app.controller('HomeController', ['dataService', '$location', '$log', HomeController]);
 };
 
-function HomeController(dataService, $location, $window) {
+function HomeController(dataService, $location, $log) {
   this.goSearch = function(params) {
-    console.log('HomeController goSearch');
+    $log.debug('HomeController goSearch');
     dataService.makeApiCalls(params);
     document.getElementById('wait').style.cursor = 'wait';
   };
@@ -20,8 +20,8 @@ function HomeController(dataService, $location, $window) {
   // this.foreground = document.getElementById('foreground');
   //
   // this.parallax = function(e){
-  //   this.xCoordinates = $window.clientX - (window.innerWidth / 2);
-  //   this.yCoordinates = $window.clientY - (window.innerHeight / 2);
+  //   this.xCoordinates = e.clientX - (window.innerWidth / 2);
+  //   this.yCoordinates = e.clientY - (window.innerHeight / 2);
   //
   //   this.background.style.backgroundPosition = (this.strengthBack / window.innerWidth * this.xCoordinates * -1) + 'px ' + (this.strengthBack / window.innerHeight * this.yCoordinates * -1) + 'px';
   //   this.middleground.style.backgroundPosition = (this.strengthMiddle / window.innerWidth * this.xCoordinates * -1) + 'px ' + (this.strengthMiddle / window.innerHeight * this.yCoordinates * -1) + 'px';

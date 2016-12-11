@@ -1,0 +1,22 @@
+.social-window {
+    height: calc(100% - 62px - (13vw / 3));
+    margin-top: calc(16vw / 3);
+    overflow-wrap: break-word;
+    margin-bottom: 62px;
+    z-index: 3;
+    overflow: hidden;
+    @import './_social-window-facebook';
+    @import './_social-window-twitter';
+}
+@media screen and (max-width : 768px) {
+    .social-window {
+        height: calc(100% - 70px - 56px);
+        margin-top: 60px;
+    }
+}
+@media screen and (max-width : 460px) {
+    .social-window {
+        height: calc(100% - 2em - 5vw - 62px);
+        margin-top: 14vw;
+    }
+}

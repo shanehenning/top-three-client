@@ -1,0 +1,131 @@
+.home {
+    // #background, #middleground, #foreground{
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   background-repeat: no-repeat;
+    // }
+    // #background{
+    //   z-index: 1;
+    //   background-image: url('../../app/resources/marker.svg');
+    // }
+    // #middleground{
+    //   z-index: 2;
+    //   background-image: url('../../app/resources/marker.svg');
+    // }
+    // #foreground{
+    //   z-index: 3;
+    //   background-image: url('../../app/resources/marker.svg');
+    // }
+    h2,
+    p {
+        color: $panel;
+    }
+    top: 17.5%;
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 2em);
+    margin: 0 auto;
+    padding: 1em;
+    z-index: 2;
+    text-align: center;
+    .logo {
+        height: 100pt;
+        margin: 1em auto;
+        filter:drop-shadow(2px 2px 2px $teal-midnight);
+    }
+    .welcome {
+        h2 {
+            text-shadow: 1px 1px $teal-midnight;
+        }
+        p {
+            margin-bottom: 2em;
+        }
+    }
+    .markers {
+        display: none;
+        position: absolute;
+        background-color: rgba(255,255,255,.2);
+        z-index: 1 !important;
+        width: 60%;
+        height: 60%;
+        top: 20%;
+        bottom: 20%;
+        left: 20%;
+        right: 20%;
+        img {
+            position: relative;
+            height: 32pt;
+        }
+    }
+    form {
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        margin-right: 22px;
+        label {
+            top: 12px;
+        }
+        button {
+            height: 37px;
+            margin-top: 4px;
+        }
+    }
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  h1 {
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    background: radial-gradient($panel 0%, #c2c2c2 100%);
+    border-radius: 50%;
+    animation: move 1.1s;
+    opacity: 0;
+  }
+}
+@keyframes move {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80%{
+    opacity: 0;
+  }
+  100% {
+    transform: scale(30);
+  }
+}
+@media screen and (max-width : 768px) {
+    .home {
+        top: 0;
+        .welcome {
+            p {
+                margin: auto;
+            }
+        }
+        form {
+            flex-direction: column;
+            align-items: center;
+            margin-right: 0;
+            label {
+                // position: absolute;
+                top: 29px;
+                left: -88px;
+            }
+            input {
+                margin: 0;
+            }
+            input:nth-child(4) {
+                margin-bottom: 1em;
+            }
+        }
+    }
+}

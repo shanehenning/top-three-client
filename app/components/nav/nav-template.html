@@ -1,15 +1,20 @@
 <nav>
+  <div class="logo" ng-if="$ctrl.display"><a href="#/"><img src="../../../app/resources/logo-white.svg" alt="Top Three Logo"></a></div>
   <!-- <div class="wipe"><a href="#/"><img class="logo logo-white" src="../../../app/resources/logo-white.svg" alt="Top Three Logo"></a></div> -->
   <!-- <div class="logo"><a href="#/"><img src="../../../app/resources/logo.svg" alt="Top Three Logo"></a></div> -->
-    <input type="checkbox" name="drawer" id="drawer" class="drawer">
-    <label for="drawer" id="drawer-label" class="fa fa-search"></label>
+    <input ng-if="$ctrl.display" type="checkbox" name="drawer" id="drawer" class="drawer">
+    <label ng-if="$ctrl.display"  for="drawer" id="drawer-label" class="fa fa-search"></label>
     <div class="pull-down">
-      <form autocomplete="off" ng-if="$ctrl.display" ng-submit="$ctrl.reSearch(searchParams); searchParams = null">
+      <div class="logo" ng-if="$ctrl.display"><a href="#/"><img src="../../../app/resources/logo-white.svg" alt="Top Three Logo"></a></div>
+      <form autocomplete="off" ng-if="$ctrl.display" ng-submit="loading = true; $ctrl.reSearch(searchParams); searchParams = null">
         <label for="term"><icon class="fa fa-search"></icon></label>
-        <input ng-model="searchParams.term" type="text" name="term" placeholder="what">
+        <input ng-model="searchParams.term" type="text" name="term" placeholder="Find" required>
         <label for="term"><icon class="fa fa-globe"></icon></label>
-        <input ng-model="searchParams.location" type="text" name="location" placeholder="where">
-        <button type="submit" name="new-search-button">Search</button>
+        <input ng-model="searchParams.location" type="text" name="location" placeholder="Near" required>
+        <button type="submit" name="new-search-button" >Search</button>
+        <span class="loader">
+          <h1 ng-if="loading"></h1>
+        </span>
       </form>
     </div>
 </nav>

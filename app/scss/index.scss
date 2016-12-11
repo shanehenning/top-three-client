@@ -2,18 +2,22 @@
 @import "./mixins/_fonts.scss";
 @import "./lib/_theme";
 @import "./lib/base";
-.logo {
-    height: 32pt;
-    margin-bottom: 0;
-    img {
-        position: absolute;
-        left: 0;
-        margin: 2em;
-        height: 32pt;
-    }
-}
+// .logo {
+//     height: 32pt;
+//     margin-bottom: 0;
+//     img {
+//         position: absolute;
+//         left: 0;
+//         margin: 2em;
+//         height: 32pt;
+//     }
+//     img:hover{
+//       filter:drop-shadow(2px 2px 2px $teal-midnight);
+//     }
+// }
 main {
     @import "./lib/_nav";
+    @import "./lib/_home";
     section {
         display: flex;
         width: 95%;
@@ -22,20 +26,14 @@ main {
     }
 }
 @media screen and (max-width : 768px) {
-    .logo {
-        margin-bottom: 2em;
-    }
     main {
         section {
             display: flex;
             flex-wrap: wrap;
+            margin-top: 2em;
         }
     }
 }
 @media screen and (max-width : 460px) {
-    .logo {
-        img {
-            margin-left: 1em;
-        }
-    }
+
 }

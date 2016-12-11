@@ -14,10 +14,9 @@ article {
         left: 0;
         transition: transform 0.3s ease-out;
         transform-style: preserve-3d;
-        border: 1px solid #f0f0f0;
-        border-bottom: 2px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0.5px 1px 1px 1px #f0f0f0;
+        border: 1px solid $teal-dark;
+        border-bottom: 2px solid $teal-black;
+        box-shadow: 0.5px 1px 1px 1px $teal-dark;
     }
     .panel-business {
         position: relative;
@@ -31,8 +30,6 @@ article {
             height: 300px;
             max-height: 25vh;
             position: relative;
-            border: 1px solid #f0f0f0;
-            box-shadow: 0.5px 1px 1px 1px #f0f0f0;
             .badge {
                 position: relative;
                 left: -4px;
@@ -56,7 +53,7 @@ article {
                     right: 0;
                     bottom: -5px;
                     border-right: 5px solid transparent;
-                    border-top: 5px solid #666;
+                    border-top: 5px solid $teal-black;
                 }
             }
         }
@@ -107,17 +104,13 @@ article {
             }
         }
         .map {
-            width: calc(100% - .1em);
-            margin: 0 auto;
-            height: 300px;
+            width: 100%;
             max-height: 19.25vh;
-            border-bottom: 1.5px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0.5px 1px 1px 1px #f0f0f0;
+            border-bottom: 2.5px solid #ccc;
         }
         .details-window {
             overflow-y: hidden;
-            height: calc(100% - (19.25vh + 62px + 62px));
+            height: calc(100% - (19.25vh + 1.5vw + (5vw / 3) + 2em + 62px));
             padding: .75em;
             .website{
               overflow-wrap: break-word;
@@ -179,11 +172,13 @@ article {
             overflow: hidden;
             .facebook-empty {
                 text-align: center;
-                color: #3b5998;
+                color: $facebook;
+                font-size: calc(5.5vw / 3);
             }
             .twitter-empty {
                 text-align: center;
-                color: #1da1f2;
+                color: $twitter;
+                font-size: calc(5.5vw / 3);
             }
             .facebook {
                 margin: 1em;
@@ -340,7 +335,7 @@ article {
                 max-height: 17.5vh;
             }
             .details-window {
-                height: calc(100% - (17.5vh + 2em + 5vw + 62px));
+              height: calc(100% - (17.5vh + 3em + 5vw + 62px));
                 padding: 0.5em;
                 .website{
                   font-size: 11pt;
@@ -351,6 +346,9 @@ article {
             .social-window {
                 height: calc(100% - 70px - 56px);
                 margin-top: 60px;
+                .twitter-empty, .facebook-empty{
+                  font-size: 1.17em;
+                }
             }
         }
     }

@@ -68,6 +68,9 @@ function dataService($http, $location) {
                 }
               }
               if (idx.facebook.website) {
+                if(idx.facebook.website === '<<not-applicable>>'){
+                  idx.facebook.website = null;
+                }
                 idx.facebook.website_display = '';
                 idx.facebook.website_display = idx.facebook.website;
                 idx.facebook.website_display = idx.facebook.website_display.split('https://')[1] === undefined ? idx.facebook.website_display : idx.facebook.website_display.split('https://')[1];

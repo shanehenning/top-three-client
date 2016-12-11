@@ -23,9 +23,8 @@
       </div>
       <div id="map-{{$index}}" class="map">
       </div>
-      <!-- <h3>{{item.yelp.name}}</h3> -->
       <div class="details-window">
-        <a href="{{item.facebook.website}}"><h4 class="website" ng-if="item.facebook.website" >{{item.facebook.website_display}} <span ng-if="!item.facebook.website_display">{{item.facebook.website}}</span><span ng-if="!item.facebook.website_display && !item.facebook.website">facebook.com/{{item.facebook.username}}</span></h4></a>
+        <a href="{{item.facebook.website}}"><h4 class="website" ng-if="item.facebook.website" >{{item.facebook.website_display}} <span ng-if="!item.facebook.website_display">{{item.facebook.website}}</span></h4></a>
         <a href="{{item.yelp.url}}"><icon class="fa fa-yelp"></icon></a>
         <p ng-if="item.facebook.price_range">{{item.facebook.price_range.split(' ')[0]}} {{item.yelp.categories[0][0]}}<span ng-if="item.yelp.categories[1]">, {{item.yelp.categories[1][0]}}</span></p>
         <p class="contact">{{item.yelp.display_phone}}</p>
@@ -46,6 +45,7 @@
         Sun: <span ng-if="item.facebook.hours.sun_1_open">{{item.facebook.hours.sun_1_open}} - {{item.facebook.hours.sun_1_close}} </span><span ng-if="!item.facebook.hours.sun_1_close">Closed </span><br/>
         </p>
       </div>
+      <br/>
     </div>
       <div class="revolving-footer">
         <h4 class="revolve revolve-left" ng-click="$ctrl.detailsToBusiness($index)">
@@ -56,7 +56,6 @@
     <div class="panel-social">
       <div class="business-banner">
         <h2 class="hashtag"><span ng-if="!item.yelp.name_truncated">#{{item.yelp.name.split(' ').join('')}}</span><span ng-if="item.yelp.name_truncated">#{{item.yelp.name_truncated.split(' ').join('')}}...</span></h2>
-        <!-- <h2 class="hashtag">#{{item.yelp.name.split(' ').join('')}}</h2> -->
       </div>
       <div class="social-window">
         <h3 class="facebook-empty" ng-if="!item.facebook.posts.data">No recent Facebook posts</h3>

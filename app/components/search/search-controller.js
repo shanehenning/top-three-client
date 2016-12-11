@@ -18,6 +18,7 @@ function SearchController(dataService, $location, $q) {
   this.detailsWindows = document.getElementsByClassName('details-window');
 
   this.retrieveData = function(){
+    // console.log('dataService.api[0].yelp: ', dataService.api[0].yelp);
     if(dataService.api[0].yelp !== undefined) return;
     let params = {
       term: $location.path().split('/').splice(2,1),

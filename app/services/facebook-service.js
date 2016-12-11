@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.service('googleFacebookService', ['$scope', '$q', googleFacebookService]);
+  app.service('facebookService', ['$scope', '$q', facebookService]);
 };
 
-function googleFacebookService($scope, $q){
+function facebookService($scope, $q){
   $scope.startFacebook = function(d, s, id){
     return $q(function(resolve,reject){
       $scope.initFacebook(d,s,id);
@@ -28,12 +28,5 @@ function googleFacebookService($scope, $q){
       xfbml      : true,
       version    : 'v2.8'
     });
-  };
-
-  $scope.appendGoogleMaps = function(){
-    let script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + __GOOGLE_MAPS_KEY__;
-    document.body.appendChild(script);
   };
 }
